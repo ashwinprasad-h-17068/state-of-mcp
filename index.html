@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A visual overview of the current state of the Zoho Analytics MCP server ecosystem.">
+  <title>Zoho Analytics MCP: Current State</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html"><span class="brand-mark">ZA</span><span>Zoho Analytics MCP</span></a>
+    <nav aria-label="Primary navigation">
+      <a class="active" href="index.html">Overview</a>
+      <a href="tools.html">Tool coverage</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>The State of MCP</h1>
+      <p class="hero-copy">Zoho Analytics currently has multiple MCP distributions, each catering to a different needs</p>
+      <div class="hero-actions">
+        <a class="button primary" href="#landscape">See the landscape <span>→</span></a>
+        <a class="button secondary" href="tools.html">Explore tool coverage</a>
+      </div>
+    </section>
+
+    <section class="takeaway-grid" aria-label="Key takeaways">
+      <article class="takeaway accent-blue">
+        <span class="number">01</span>
+        <h2>Two main models</h2>
+        <p>There are <strong>Remote</strong> and <strong>Local</strong> MCP server distributions.</p>
+      </article>
+      <article class="takeaway accent-green">
+        <span class="number">02</span>
+        <h2>Four core distributions</h2>
+        <p>Managed Remote, Self-Hosted Remote, Docker/Python Local, and Node.js Local + Plugins and Claude Marketplace packaging.</p>
+      </article>
+      <article class="takeaway accent-purple">
+        <span class="number">03</span>
+        <h2>Coverage is uneven</h2>
+        <p>Different distributions have varying number of tools, which are eventually expected to converge.</p>
+      </article>
+      <article class="takeaway accent-orange">
+        <span class="number">04</span>
+        <h2>Plugins are different</h2>
+        <p>The Plugins version goes beyond the regular Node.js MCP tool set and is positioned to support all Analytics functionality.</p>
+      </article>
+    </section>
+
+    <section class="section" id="landscape">
+      <h2>Current State of Distributions</h2>
+      <p>Customers can reach Zoho Analytics capabilities through different hosting and packaging choices. The choice changes installation, authentication, maintenance, and most importantly, the tools available. Explore the map below: hover over or tap any node to see where that distribution stands today.</p>
+      <div class="model-graph" id="modelGraph" role="group" aria-label="MCP delivery model diagram">
+        <noscript><p class="graph-noscript">The interactive model needs JavaScript.</p></noscript>
+      </div>
+      <div class="graph-hint">
+        <span>Hover over or tap a node for hosting details, coverage notes and current position.</span>
+      </div>
+    </section>
+
+    <section class="section two-col" id="why-remote-local">
+      <div>
+        <div class="section-kicker">WHY REMOTE?</div>
+        <h2>Lower setup friction</h2>
+        <p>Remote MCP is attractive to end users because installation is easier and authentication can happen through the browser session, without manually creating credentials such as client IDs and refresh tokens.</p>
+      </div>
+      <div>
+        <div class="section-kicker">WHY LOCAL?</div>
+        <h2>More control</h2>
+        <p>Local distributions are maintained by the Zoho Analytics team and contain custom logic over regular APIs. They support different development environments and preferences.</p>
+      </div>
+    </section>
+
+    <section class="section" id="special-packaging">
+      <div class="section-kicker">SPECIAL PACKAGING</div>
+      <h2>Claude Marketplace and Plugins</h2>
+      <div class="info-grid">
+        <article>
+          <h3>Claude Marketplace</h3>
+          <p>The Analytics MCP is also listed on the Claude Marketplace. Claude requires the mcp servers to be bundled in a MCPB package format. The Analytics MCPB is built over the Node.js local version.</p>
+        </article>
+        <article>
+          <h3>Plugins</h3>
+          <p>Plugins use a tagged Node.js-based MCP package plus an Agent skill. Because prompt bloating is not a concern in this setup, the Plugins version can expose a larger set of tools.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="ideal-endgoal">
+      <div class="section-kicker">IDEAL ENDGOAL</div>
+      <h2>Where Every Distribution Is Headed</h2>
+      <p>The long-term goal is for each distribution to reach a well-defined capability tier that matches its architecture and constraints — converging on a consistent, predictable surface for developers and agents alike.</p>
+
+      <div class="info-grid" style="margin-top:28px">
+        <article>
+          <h3 style="display:flex;align-items:center;gap:10px;margin:0 0 10px">
+            Node.js &amp; Docker
+            <span class="pill progress" style="font-size:10px">Converging</span>
+          </h3>
+          <p style="margin:0 0 12px">Both local (Node.js, Docker) and remote (Self-Hosted Docker) distributions will converge to the same toolset,  matching what Node.js currently offers today, up through <strong>report creation and management</strong>. This covers data querying, table and workspace management, import and export, formula creation, and chart, pivot, and summary report CRUD.</p>
+          <p style="margin:0 0 12px">Dashboard tools are deliberately excluded from this tier for two reasons. First, adding them would significantly grow the total tool count, causing <strong>prompt bloating</strong> in standard MCP clients where all tool definitions are injected into the model context at once. Second, dashboard operations are inherently more complex than other MCP tools: creating or editing a dashboard involves understanding the layout, referencing multiple reports, and managing widget configurations, making them less suitable for a flat, single-server tool list.</p>
+          <p style="margin:0;font-size:13px;color:var(--muted)"><strong>Note:</strong> The Claude Marketplace MCPB is built directly over Node.js and will naturally follow this same coverage boundary.</p>
+        </article>
+        <article>
+          <h3 style="display:flex;align-items:center;gap:10px;margin:0 0 10px">
+            Plugins &amp; Zoho MCP
+            <span class="pill good" style="font-size:10px">Full surface</span>
+          </h3>
+          <p style="margin:0 0 12px">These two distributions are not constrained by prompt bloating, each for a different architectural reason:</p>
+          <ul style="margin:0 0 12px;padding-left:18px;font-size:14px;color:var(--muted);line-height:1.7">
+            <li><strong>Plugins</strong> use progressive disclosure via Agent Skills - tools are surfaced to the model incrementally based on task context, so the full tool catalog is never injected all at once.</li>
+            <li><strong>Zoho MCP</strong> acts as an MCP registry rather than a single monolithic server: customers compose specific tool combinations for their use case, so no single agent context receives the entire tool list.</li>
+          </ul>
+          <p style="margin:0 0 12px">As a result, both distributions will publish the <strong>full analytics capability surface</strong> as MCP tools, including everything available in Node.js/Docker plus dashboard creation, dashboard editing, dashboard metadata, folder management, aggregate and custom formula editing, and bulk export operations.</p>
+          <p style="margin:0;font-size:13px;color:var(--muted)">This makes Plugins and Zoho MCP the recommended choice for teams that need deep, end-to-end analytics automation.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+  <script src="graph.js" defer></script>
+</body>
+</html>

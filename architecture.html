@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>How Zoho Analytics MCP fits together</title><link rel="stylesheet" href="styles.css"></head>
+<body><header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">ZA</span><span>Zoho Analytics MCP</span></a><nav aria-label="Primary navigation"><a href="index.html">Overview</a><a class="active" href="architecture.html">How it fits together</a><a href="tools.html">Tool coverage</a></nav></header>
+<main>
+<section class="page-hero"><div class="eyebrow">01 · LANDSCAPE</div><h1>One ecosystem, multiple ways to connect.</h1><p>The simplest way to explain the current state is to separate <strong>where the server runs</strong> from <strong>how it is packaged and maintained</strong>.</p></section>
+<section class="section">
+<div class="architecture-map">
+  <div class="map-root"><span>Zoho Analytics MCP</span><small>different distributions, different tool coverage</small></div>
+  <div class="map-columns">
+    <div class="map-column blue"><div class="column-title">REMOTE</div><div class="map-card"><h3>Managed Remote</h3><p>Zoho MCP hosts it through t. Customers connect through a provided link. Authentication happens through the browser session.</p><span class="tag">Zoho-hosted</span></div><div class="map-card"><h3>Self-Hosted Remote (also Docker/Python based)</h3><p>Customer hosts the Docker image on their infrastructure and shares a link internally.</p><span class="tag">Customer-hosted</span></div></div>
+    <div class="map-column green"><div class="column-title">LOCAL</div><div class="map-card"><h3>Docker / Python</h3><p>Runs locally from the Docker-based Python server. Custom tool logic is designed to be more agent-friendly.</p><span class="tag">Local runtime</span></div><div class="map-card"><h3>Node.js</h3><p>Local MCP distribution with the broadest regular MCP tool coverage in the current notes.</p><span class="tag">Local runtime</span></div></div>
+  </div>
+</div>
+</section>
+<section class="section two-col">
+<div><div class="section-kicker">WHY REMOTE?</div><h2>Lower setup friction</h2><p>Remote MCP is attractive to end users because installation is easier and authentication can happen through the browser session, without manually creating credentials such as client IDs and refresh tokens.</p></div>
+<div><div class="section-kicker">WHY LOCAL?</div><h2>More control</h2><p>Local distributions are maintained by the Zoho Analytics team and contain custom logic over regular APIs. They support different development environments and preferences.</p></div>
+</section>
+<section class="section">
+<div class="section-kicker">SPECIAL PACKAGING</div><h2>Claude Marketplace and Plugins</h2><div class="info-grid"><article><h3>Claude Marketplace</h3><p>The Analytics MCP is also listed on the Claude Marketplace. Claude requires the mcp servers to be bundled in a MCPB package format. The Analytics MCPB is built over the Node.js local version.</p></article><article><h3>Plugins</h3><p>Plugins use a tagged Node.js-based MCP package plus an Agent skill. Because prompt bloating is not a concern in this setup, the Plugins version can expose a larger set of tools.</p></article></div>
+</section>
+<section class="section callout warning"><div class="callout-icon">!</div><div><strong>Important nuance</strong><p>“Remote” does not automatically mean “same functionality.” The Self-Hosted Remote server is based on the Python Docker code, and file-transfer tools such as import/export are not available there due to technical constraints.</p></div></section>
+</main></body></html>

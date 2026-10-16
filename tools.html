@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Zoho Analytics MCP — Tool coverage</title><link rel="stylesheet" href="styles.css"></head>
+<body><header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">ZA</span><span>Zoho Analytics MCP</span></a><nav aria-label="Primary navigation"><a href="index.html">Overview</a><a class="active" href="tools.html">Tool coverage</a></nav></header>
+<main>
+<section class="page-hero"><div class="eyebrow">02 · TOOL COVERAGE</div><h1>Tool availability is the main source of variation.</h1></section>
+<section class="section tool-explorer">
+<div class="filters" role="group" aria-label="Tool filters"><button type="button" class="filter active" data-filter="all">All tools</button><button type="button" class="filter" data-filter="node">Node.js</button><button type="button" class="filter" data-filter="python-local">Python · Local</button><button type="button" class="filter" data-filter="python-remote">Python · Remote</button><button type="button" class="filter" data-filter="zoho">Zoho MCP</button><button type="button" class="filter" data-filter="plugins">Plugins</button></div>
+<div class="dist-counts" id="distCounts" aria-label="Tool counts per distribution"></div>
+<div class="legend"><span><i class="dot yes"></i>Available</span><span><i class="dot partial"></i>Different mapping / partial equivalent</span><span><i class="dot no"></i>Not available</span></div>
+<div class="tool-list" id="toolList"></div>
+<p class="empty" id="emptyState" hidden>No tools match this filter.</p>
+</section>
+<section class="section">
+<div class="section-kicker">HOW TO READ THIS</div><div class="insight-grid"><article><b>Node.js</b><span>Most mature regular MCP distribution in the notes, with some tools that are Node-only.</span></article><article><b>Python Local</b><span>Broad coverage, but some tools are not yet caught up with Node.js.</span></article><article><b>Python Remote</b><span>Same base as Python Local, with file-transfer capabilities removed.</span></article><article><b>Zoho MCP</b><span>Growing based on customer requirements, but missing the newest Node.js report and lookup-related tools called out in the notes.</span></article><article><b>Plugins</b><span>All Node.js MCP tools and more; the notes specifically call out folders, modeling edits, and dashboard-related tools.</span></article></div>
+</section>
+<section class="section callout"><div class="callout-icon">✓</div><div><strong>Product direction</strong><p>The notes describe the ideal state as exposing all Zoho Analytics functionality through Zoho MCP. The registry model is important because customers can create servers with different tool combinations, reducing the concern about prompt bloat.</p></div></section>
+</main><footer><span>Zoho Analytics · Internal briefing</span><span><a href="index.html">Overview</a></span></footer>
+<script src="app.js"></script></body></html>
